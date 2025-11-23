@@ -1,13 +1,13 @@
 ## Initial Setup:
 
 # 1. Initialize the OpenVPN configuration
-docker compose run --rm openvpn ovpn_genconfig -u udp://ipaddr:9999
+`docker compose run --rm openvpn ovpn_genconfig -u udp://ipaddr:9999`
 
 # 2. Generate the PKI (you'll be prompted to set a passphrase)
-docker compose run --rm openvpn ovpn_initpki
+`docker compose run --rm openvpn ovpn_initpki`
 
 # 3. Start the OpenVPN server
-docker compose up -d
+`docker compose up -d`
 
 
 
@@ -15,10 +15,10 @@ docker compose up -d
 
 ## Create a client certificate:
 # Replace CLIENT_NAME with your desired client name
-docker compose run --rm openvpn easyrsa build-client-full CLIENT_NAME nopass
+`docker compose run --rm openvpn easyrsa build-client-full CLIENT_NAME nopass`
 
 # Export the client configuration
-docker compose run --rm openvpn ovpn_getclient CLIENT_NAME > CLIENT_NAME.ovpn
+`docker compose run --rm openvpn ovpn_getclient CLIENT_NAME > CLIENT_NAME.ovpn`
 
 
 ====================
