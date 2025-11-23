@@ -1,7 +1,7 @@
 ## Initial Setup:
 
 # 1. Initialize the OpenVPN configuration
-docker compose run --rm openvpn ovpn_genconfig -u udp://*.*.*.*:9999
+docker compose run --rm openvpn ovpn_genconfig -u udp://ipaddr:9999
 
 # 2. Generate the PKI (you'll be prompted to set a passphrase)
 docker compose run --rm openvpn ovpn_initpki
@@ -26,6 +26,6 @@ The configuration uses:
 
 Port 9999 for UDP traffic (standard OpenVPN)
 Port 9998 for TCP traffic (fallback option)
-Your server IP: `*.*.*.*`
+Your server IP: ipaddr
 Data persisted in ./openvpn-data directory
 Once running, clients can connect using the generated .ovpn file.
