@@ -1,0 +1,14 @@
+services:
+  openvpn:
+    image: kylemanna/openvpn:latest
+    container_name: openvpn
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - "9999:1194/udp"
+      - "9998:1194/tcp"
+    volumes:
+      - ./openvpn-data:/etc/openvpn
+    restart: unless-stopped
+    environment:
+      - OVPN_SERVER_URL=udp://72.61.126.40:9999
